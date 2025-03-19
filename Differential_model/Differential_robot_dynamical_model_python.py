@@ -8,8 +8,8 @@ m = 1.0      # Mass [kg]
 J = 0.1      # Moment of inertia [kg·m²]
 
 # Simulation parameters
-dt = 0.1     # Time step [s]
-total_time = 5.0  # Simulation duration [s]
+dt = 0.01     # Time step [s]
+total_time = 10.0  # Simulation duration [s]
 steps = int(total_time / dt)
 
 # Initial conditions
@@ -25,12 +25,12 @@ omega = np.zeros(steps)  # Angular velocity [rad/s]
 
 # Choose scenario (uncomment one)
 # Scenario 1:
-tau_r = np.full(steps, 0.1)  # Right wheel torque
-tau_l = np.full(steps, 0.1)  # Left wheel torque
+# tau_r = np.full(steps, 0.1)  # Right wheel torque
+# tau_l = np.full(steps, 0.1)  # Left wheel torque
 
 # Scenario 2:
-# tau_r = np.full(steps, 0.15)  # Right wheel torque
-# tau_l = np.full(steps, 0.05)  # Left wheel torque
+tau_r = np.full(steps, 0.15)  # Right wheel torque
+tau_l = np.full(steps, 0.05)  # Left wheel torque
 
 # Simulation loop
 for i in range(1, steps):
@@ -45,7 +45,7 @@ for i in range(1, steps):
     # Update pose using velocities (kinematic model)
     x[i] = x[i-1] + v[i] * np.cos(theta[i-1]) * dt
     y[i] = y[i-1] + v[i] * np.sin(theta[i-1]) * dt
-    theta[i] = theta[i-1] + omega[i] * dt
+    theta[i] = (theta[i-1] + omega[i] * dt) % (2 * np.pi) # Wrapping at 360°
 
 # Plotting
 plt.figure(figsize=(14, 10))
