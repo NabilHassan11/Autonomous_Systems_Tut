@@ -13,5 +13,5 @@ time = (0:0.1:10)';  % Time from 0 to 10 seconds in steps of 0.1
 %Note: if you are using constant speed then v = [0,v_in]
 %Note: if you are using varying speed then v = [time,v_in]
 
-Vd = [0,10]; % input speed of the vehicle
-phi = [0,0.1]; % input steering rate
+Vd = [0,10]; % input speed of the left wheel
+phi = [0,0.1]; % input angular speed of the left wheel
