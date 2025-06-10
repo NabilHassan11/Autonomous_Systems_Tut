@@ -15,14 +15,20 @@ x = np.zeros(steps)
 y = np.zeros(steps)
 theta = np.zeros(steps)  # Orientation in radians
 
+# Set initial position and orientation
+x[0] = 5.0
+y[0] = 5.0
+theta[0] = np.pi  # 180 degrees in radians
+
+
 # Wheel angular velocities (rad/s)
 # Scenario 1: Straight line (both wheels same speed)
 # Scenario 2: Circular motion (different wheel speeds)
 
 # Choose scenario (uncomment one)
 # Scenario 1:
-w_r = np.full(steps, 10.0)  # Right wheel speed (rad/s)
-w_l = np.full(steps, 10.0)  # Left wheel speed (rad/s)
+w_r = np.full(steps,3.0)  # Right wheel speed (rad/s)
+w_l = np.full(steps, 6.0)  # Left wheel speed (rad/s)
 
 # Scenario 2:
 # w_r = np.full(steps, 10.0)   # Right wheel speed (rad/s)

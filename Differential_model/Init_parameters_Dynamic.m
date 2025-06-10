@@ -13,8 +13,8 @@ v = 0;
 
 time = (0:0.1:10)';  % Time from 0 to 10 seconds in steps of 0.1
  
-%Note: if you are using constant speed then w = [0,w_in]
-%Note: if you are using varying speed then w = [time,w_in]
+%Note: if you are using constant speed then T = [0,T_in]
+%Note: if you are using varying speed then T = [time,T_in]
 
 T_L = [0,1e-3]; % input angular speed of the left wheel
 T_R = [0,2e-5]; % input angular speed of the left wheel
